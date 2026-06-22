@@ -5,7 +5,6 @@ import io.cucumber.java.en.*;
 import io.restassured.RestAssured;
 import io.restassured.internal.common.assertion.Assertion;
 import io.restassured.response.Response;
-import requests.HealthCheckRequest;
 import org.junit.Assert;
 
 public class HealthCheckSteps {
