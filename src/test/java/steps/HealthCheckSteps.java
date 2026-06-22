@@ -6,33 +6,18 @@ import io.restassured.RestAssured;
 import io.restassured.internal.common.assertion.Assertion;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import utils.PropertiesReader;
 
 public class HealthCheckSteps {
     Response response;
 
-    @Given("I have the api healthCheck")
-    public void getHealthCheck() {
-        response = RestAssured.given().get("https://restful-booker.herokuapp.com/ping");
-    }
-    @When("I send a request to healtCheck API")
-    public void i_send_a_request_to_healt_check_api() {
-
-    }
-    @Then("I must visualize the status code {int}")
-    public void i_must_visualize_the_status_code(Integer statusCode) {
-    }
-    @Then("i must visualize the correct response")
-    public void i_must_visualize_the_correct_response() {
-        response.then().assertThat().statusCode(201);
-        System.out.println("El status code es: " + response.getStatusCode());
-        response.print();
-    }
-
-
     @Given("se tiene la api {string}")
     public void se_tiene_la_api(String api) {
         System.out.println("Se tiene la api: " + api);
-        response = RestAssured.given().get(api);
+        String baseUrl = PropertiesReader.get("baseUrl");
+        String path = PropertiesReader.get("healthCheck");
+        String urlFinal = baseUrl + path;
+        response = RestAssured.given().get(urlFinal);
     }
     @When("ejecuto la petición")
     public void ejecuto_la_petición() {
