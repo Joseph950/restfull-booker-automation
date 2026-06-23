@@ -1,12 +1,13 @@
 package runners;
 
 import io.cucumber.junit.Cucumber;
-import org.junit.runner.RunWith;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.After;
+import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features/api",
+        features = "src\\test\\resources\\features",
         glue = {
                 "steps",
                 "hooks"
@@ -16,9 +17,8 @@ import io.cucumber.junit.CucumberOptions;
                 "html:target/reports/cucumber.html",
                 "json:target/reports/cucumber.json"
         },
-        monochrome = true,
-        dryRun = false,
-        publish = false
+        publish = true,
+        tags = "@first"
 )
 
 public class RunCucumber {
