@@ -18,6 +18,7 @@ public class BaseFunctions {
     public Response executeRequestGet(String url){
         System.out.println("Se ejecuta la petición...");
         Response response = RestAssured.given().get(url);
+        response.print();
         return response;
     }
 
@@ -29,6 +30,12 @@ public class BaseFunctions {
     public void validateResponse(Response response){
         System.out.println("El response es: " + response.getBody().asString());
         Assert.assertEquals("El response no es el esperado","Created",response.getBody().asString());
+    }
+
+    public void validateResponseNotEmpty(Response response){
+        System.out.println("Se valida el response");
+        Assert.assertFalse("Response is null or empty",response.getBody().asString().isEmpty());
+
     }
 
 }

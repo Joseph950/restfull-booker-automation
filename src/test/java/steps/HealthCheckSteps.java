@@ -29,4 +29,10 @@ public class HealthCheckSteps extends BaseFunctions {
     public void validateCorrectResponse() {
         validateResponse(response);
     }
+
+    @Then("should visualize response not empty")
+    public void should_visualize_response_not_empty() {
+        validateResponseNotEmpty(response);
+    }
+
 }
