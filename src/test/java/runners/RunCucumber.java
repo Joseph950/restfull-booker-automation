@@ -18,11 +18,9 @@ import reports.CucumberReport;
                 "pretty",
                 "html:target/reports/cucumber.html",
                 "json:target/reports/cucumber.json"
-                //"html:target/advanced-report/cucumber-html-reports/cucumber.html",
-                //"json:target/advanced-report/cucumber-html-reports/cucumber.json"
         },
         publish = true,
-        tags = "@first"
+        tags = "@prueba"
 )
 
 public class RunCucumber {
